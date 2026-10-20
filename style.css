@@ -1,0 +1,203 @@
+/* 四级刷题 H5 - 手机优先，浅色主题 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #f5f6f8;
+  color: #1f2329;
+  max-width: 640px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.view { padding: 16px; }
+.hidden { display: none !important; }
+
+/* ---------- 通用 ---------- */
+.big-btn {
+  display: block;
+  width: 100%;
+  min-height: 52px;
+  margin: 12px 0;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  background: #3b6ef6;
+  color: #fff;
+  cursor: pointer;
+}
+.big-btn:active { opacity: 0.85; }
+
+.back-btn {
+  min-height: 44px;
+  padding: 0 12px;
+  border: none;
+  background: none;
+  font-size: 16px;
+  color: #3b6ef6;
+  cursor: pointer;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e6eb;
+  margin-bottom: 12px;
+}
+.topbar-title { font-size: 17px; font-weight: 600; }
+
+/* ---------- 首页 ---------- */
+.app-title { text-align: center; margin: 32px 0 24px; font-size: 26px; }
+.home-stats {
+  margin-top: 24px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #646a73;
+  line-height: 2;
+}
+
+/* ---------- 专项筛选 ---------- */
+.filter-form label { display: block; margin: 14px 0 6px; font-size: 15px; color: #646a73; }
+.filter-form select {
+  width: 100%;
+  min-height: 48px;
+  font-size: 16px;
+  padding: 0 12px;
+  border: 1px solid #d0d3d9;
+  border-radius: 10px;
+  background: #fff;
+}
+.filter-count { margin: 16px 0 4px; text-align: center; color: #646a73; font-size: 14px; }
+
+/* ---------- 答题页 ---------- */
+.quiz-meta { font-size: 14px; color: #646a73; margin-bottom: 10px; }
+.quiz-meta .tag {
+  display: inline-block;
+  background: #eef3ff;
+  color: #3b6ef6;
+  border-radius: 6px;
+  padding: 2px 8px;
+  margin-right: 6px;
+  font-size: 12px;
+}
+
+.passage-box {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.passage-box summary { color: #3b6ef6; cursor: pointer; min-height: 44px; line-height: 44px; }
+.passage-box p { margin-top: 8px; color: #3c4048; }
+
+.quiz-stem { font-size: 16px; font-weight: 600; line-height: 1.6; margin-bottom: 14px; }
+
+.quiz-options .opt {
+  display: flex;
+  width: 100%;
+  min-height: 48px;
+  align-items: flex-start;
+  text-align: left;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border: 1px solid #d0d3d9;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 15px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.quiz-options .opt .key { font-weight: 700; margin-right: 8px; flex-shrink: 0; }
+.quiz-options .opt.locked { pointer-events: none; }
+.quiz-options .opt.correct { background: #e8f7ee; border-color: #22c55e; color: #15803d; }
+.quiz-options .opt.wrong { background: #fdecec; border-color: #ef4444; color: #b91c1c; }
+
+/* 听力同组多题：每题一块，块头题号 */
+.q-block { margin-bottom: 18px; }
+.q-block + .q-block { border-top: 1px dashed #d0d3d9; padding-top: 14px; }
+.q-label { font-size: 15px; font-weight: 600; margin-bottom: 10px; color: #1f2329; }
+
+/* 底部导航：上一题/下一题常驻并排 */
+.quiz-nav { display: flex; gap: 10px; margin-top: 8px; padding-bottom: 20px; }
+.nav-btn {
+  flex: 1;
+  min-height: 52px;
+  font-size: 17px;
+  border: 1px solid #d0d3d9;
+  border-radius: 12px;
+  background: #fff;
+  color: #1f2329;
+  cursor: pointer;
+}
+.nav-btn.primary { background: #3b6ef6; border-color: #3b6ef6; color: #fff; }
+.nav-btn:disabled { opacity: 0.4; cursor: default; }
+.nav-btn:not(:disabled):active { opacity: 0.85; }
+
+/* 首页底部的低调文字按钮 */
+.text-btn {
+  display: block;
+  margin: 14px auto 0;
+  min-height: 44px;
+  padding: 0 16px;
+  border: none;
+  background: none;
+  color: #8a8f99;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ---------- 错题本 ---------- */
+.tab-bar { display: flex; gap: 8px; margin-bottom: 12px; }
+.tab {
+  flex: 1;
+  min-height: 44px;
+  border: 1px solid #d0d3d9;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+.tab.active { background: #3b6ef6; color: #fff; border-color: #3b6ef6; }
+
+.wrong-item {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+.wrong-item .summary { font-size: 15px; line-height: 1.5; }
+.wrong-item .info { font-size: 13px; color: #646a73; margin-top: 6px; }
+.wrong-item .row { display: flex; gap: 8px; margin-top: 8px; }
+.wrong-item .row button {
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 1px solid #d0d3d9;
+  background: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+.wrong-item .row .redo { background: #3b6ef6; color: #fff; border-color: #3b6ef6; }
+.mastered-badge { color: #15803d; font-size: 12px; }
+
+.empty-tip { text-align: center; color: #8a8f99; padding: 40px 0; font-size: 15px; }
+
+.wrong-tools { margin-top: 20px; border-top: 1px solid #e5e6eb; padding-top: 12px; }
+.tool-btn {
+  width: 100%;
+  min-height: 44px;
+  margin-bottom: 10px;
+  border: 1px solid #d0d3d9;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+.tool-btn.danger { color: #b91c1c; border-color: #f3c2c2; }
